@@ -4,17 +4,18 @@ import {fetchUser} from './HomeActions'
 
 const USER_ID = 1;
 
-const Home = ({name, fetchUser}) => {
+const Home = ({user, fetchUser}) => {
     useEffect(() => {
         fetchUser(USER_ID);
-    }, [])
-    return <h1>{name}</h1>
+    }, [fetchUser]);
+
+    if(!user) return <h1>Home</h1>;
+    return <h1>{user.name}</h1>
 }
 
 const mapStateToProps = (state) => {
-    console.log('*** Home.mapStateToProps', state)
     return {
-        name: state.name,
+        user: state.user,
     }
 }
 

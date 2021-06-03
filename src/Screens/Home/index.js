@@ -16,5 +16,11 @@ const Home = () => {
     return (
        <h1>{user.name}</h1>
     )
+
 }
-export default Home;
+
+const mapStateToProps = (state) => {
+    return {}
+}
+
+export default connect()(Home);

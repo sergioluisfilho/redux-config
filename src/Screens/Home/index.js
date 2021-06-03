@@ -1,22 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
-import {doGetRequest} from 'Helpers/apiHelper'
+import {fetchUser} from './HomeActions'
 
-const Home = ({name}) => {
-    const [user, setUser] = useState(null)
+const USER_ID = 1;
+
+const Home = ({name, fetchUser}) => {
     useEffect(() => {
-        doGetRequest('/people/1').then((response) => {
-            //console.log(response)
-            setUser(response)
-        }).catch(console.error).finally(() =>{console.log('finally')});
+        fetchUser(USER_ID);
     }, [])
-
-    if (!user) return <h1>{name}</h1>
-
-    return (
-       <h1>{user.name}</h1>
-    )
-
+    return <h1>{name}</h1>
 }
 
 const mapStateToProps = (state) => {
@@ -26,4 +18,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps, {fetchUser})(Home);

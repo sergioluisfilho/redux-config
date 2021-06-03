@@ -1,9 +1,7 @@
 import {createStore} from 'redux';
+import HomeReducer from './Screens/Home/HomeReducer';
 
- const reducer = () => {
-    return {name: 'Sérgio'}
- }
 
-const store = createStore(reducer);
+const store = createStore(HomeReducer);
 
 export default store;

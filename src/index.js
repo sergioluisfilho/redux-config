@@ -6,7 +6,7 @@ import App from 'App';
 
 
 ReactDOM.render(
-    <Provider><App/></Provider>,
+    <Provider store={store}><App/></Provider>,
   document.getElementById('root')
 );
 

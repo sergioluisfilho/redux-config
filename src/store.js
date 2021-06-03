@@ -1,5 +1,9 @@
 import {createStore} from 'redux';
 
-const store = createStore();
+ const reducer = () => {
+    return {name: 'Sérgio'}
+ }
+
+const store = createStore(reducer);
 
 export default store;
